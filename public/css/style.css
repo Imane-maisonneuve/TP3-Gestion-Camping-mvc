@@ -1,0 +1,284 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+  display: flex;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin: 50px;
+  flex-basis: 100%;
+}
+
+footer {
+  margin-top: 50px;
+  text-align: center;
+}
+
+main {
+  margin-top: 50px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 31px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+h4 {
+  font-size: 21px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 16px;
+
+  font-family: "Roboto", sans-serif;
+  line-height: 2rem;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* navigation */
+
+[id="navigation"] {
+  display: flex;
+  justify-content: space-between;
+}
+
+[id="navigation"] img {
+  width: 75%;
+}
+
+[id="menu"] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+/* carte */
+
+.grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  width: auto;
+  gap: 20px;
+}
+
+.carte {
+  background-color: white;
+  border: 1px solid orange;
+  border-radius: 10px;
+  overflow: clip;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+picture {
+  flex-basis: 250px;
+  min-height: 140px;
+  height: auto;
+  flex-grow: 1;
+  position: relative;
+}
+
+picture img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.carte > div {
+  flex-basis: 30ch;
+  flex-grow: 2;
+  padding: 20px;
+}
+
+.carte > div > * + * {
+  margin-top: 10px;
+}
+
+.carte > div > * + a {
+  margin-top: 20px;
+}
+
+.carte-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* bouton */
+
+.bouton {
+  display: inline-block;
+  padding: 5px 10px;
+  line-height: 1.5;
+  color: white;
+  background-color: #3d5c0a;
+  border-radius: 4px;
+  text-decoration: none;
+  max-width: max-content;
+}
+
+.bouton:hover {
+  background-color: #d16c24;
+}
+
+/* formulaire */
+.form-base {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 20px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-family: sans-serif;
+}
+
+.form-base > * {
+  margin-top: 10px;
+}
+
+.form-base input,
+select {
+  font-family: "Roboto", sans-serif;
+  padding: 10px 5px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
+
+.bouton-submit {
+  min-width: 100px;
+  background: #27ae60;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 4px;
+  align-items: center;
+  text-align: center;
+}
+
+.erreur {
+  color: red;
+  text-align: center;
+}
+
+/* identification */
+[id="identification"] {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+[id="identification"] p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* formulaire action */
+
+.reservation {
+  border: 1px solid #d16c24;
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+
+  & picture {
+    flex-grow: 1;
+  }
+}
+
+.infos {
+  flex-grow: 2;
+  flex-basis: 40ch;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.petit {
+  width: 150px;
+  text-align: center;
+}
+
+[id="lien-inscription"] {
+  text-decoration: underline;
+}
+
+[id="lien-inscription"]:hover {
+  text-decoration: underline;
+  color: orange;
+}
+
+/* myspace */
+
+[id="myspace"] {
+  display: flex;
+  gap: 20px;
+}
+
+.error {
+  color: red;
+}
