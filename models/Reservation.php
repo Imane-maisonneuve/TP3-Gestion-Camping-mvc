@@ -8,5 +8,5 @@ class Reservation extends CRUD
 {
     protected $table = 'reservation';
     protected $primaryKey = 'id';
-    protected $fillable = ['dateArrivee', 'dateDepart', 'nbrDePersonnes', 'courriel', 'siteId', 'statutId'];
+    protected $fillable = ['dateArrivee', 'dateDepart', 'nbrDePersonnes', 'clientId', 'siteId', 'statutId'];
 }

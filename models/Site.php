@@ -8,4 +8,5 @@ class Site extends CRUD
 {
     protected $table = 'site';
     protected $primaryKey = 'id';
+    protected $fillable = ['siteNom', 'siteDescription', 'capacite', 'prix', 'urlImage', 'categorieId', 'collaborateurId'];
 }

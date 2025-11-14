@@ -1,5 +1,6 @@
 create database camping_mvc_auth;
  use camping_mvc_auth;
+ 
  CREATE TABLE privilege (
     id INT AUTO_INCREMENT PRIMARY KEY,
     privilege VARCHAR(50) NOT NULL
@@ -15,9 +16,9 @@ create database camping_mvc_auth;
  courriel VARCHAR(45) NOT NULL,
  motDePasse VARCHAR(255) NOT NULL,
  matricule VARCHAR(50) NOT NULL,
- privilege_id INT NOT NULL,
+ privilegeId INT NOT NULL,
  CONSTRAINT pk_id PRIMARY KEY (id),
- CONSTRAINT fk_privilege_id FOREIGN KEY (privilege_id) REFERENCES privilege(id),
+ CONSTRAINT fk_privilege_id FOREIGN KEY (privilegeId) REFERENCES privilege(id),
  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
  
