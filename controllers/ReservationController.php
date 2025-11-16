@@ -10,8 +10,6 @@ use App\Providers\Validator;
 
 class ReservationController
 {
-
-
     public function index()
     {
         return View::render("reservation/index", ['ASSET' => ASSET, 'base' => BASE]);
@@ -39,13 +37,11 @@ class ReservationController
         $validator->field('dateArrivee', $data['dateArrivee'])->validateDate();
         $validator->field('dateDepart', $data['dateDepart'])->validateDate();
         $validator->field('nbrDePersonnes', $data['nbrDePersonnes'])->int()->max(10);
-        $validator->field('courriel', $data['courriel'])->required()->email()->max(45);
 
         if ($validator->isSuccess()) {
-
             $reservation = new Reservation;
             $insert = $reservation->insert($data);
-            return View::redirect('reservation/show?courriel=' . $data['courriel']);
+            return View::redirect('reservation/show?id=' . $data['id']);
         } else {
             $errors = $validator->getErrors();
             $reservation = new Reservation;
@@ -57,27 +53,20 @@ class ReservationController
 
     public function show($data = [])
     {
-        $validator = new Validator;
-        $validator->field('courriel', $data['courriel'])->required()->email()->max(45);
-        if ($validator->isSuccess()) {
-            if (isset($data) && $data != null) {
-                $reservation = new Reservation;
-                $selectListe = $reservation->selectListe('courriel', $data['courriel']);
-                if ($selectListe) {
-                    $statut = new Statut;
-                    $selectStatut = $statut->select();
-                    $site = new Site;
-                    $selectSite = $site->select();
-                    return View::render("reservation/show", ['reservations' => $selectListe, 'statuts' => $selectStatut, 'sites' => $selectSite]);
-                } else {
-                    return View::render('error', ['msg' => 'Aucune réservation ne correspond à ce courriel!']);
-                }
-            } else {
-                return View::render('error', ['msg' => 'Courriel manquant pour afficher les réservations!']);
-            }
+        if (isset($data) && $data != null) {
+            $reservation = new Reservation;
+            $selectListe = $reservation->selectListe('id', $data['id']);
+            // if ($selectListe) {
+            $statut = new Statut;
+            $selectStatut = $statut->select();
+            $site = new Site;
+            $selectSite = $site->select();
+            return View::render("reservation/show", ['reservations' => $selectListe, 'statuts' => $selectStatut, 'sites' => $selectSite]);
+            // } else {
+            //     return View::render('error', ['msg' => 'Aucune réservation ne correspond à ce client!']);
+            // }
         } else {
-            $errors = $validator->getErrors();
-            return View::render('reservation/index', ['errors' => $errors, $data]);
+            return View::render('error', ['msg' => 'Courriel manquant pour afficher les réservations!']);
         }
     }
 
@@ -137,7 +126,6 @@ class ReservationController
             return View::render('error', ['msg' => 'Identifiant de réservation manquant ou invalide!!']);
         }
     }
-
 
     public function delete($data)
     {

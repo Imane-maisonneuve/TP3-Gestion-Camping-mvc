@@ -2,9 +2,6 @@
 
 namespace App\Routes;
 
-use App\Controllers\ClientController;
-use App\Controllers\SiteController;
-
 class Route
 {
 

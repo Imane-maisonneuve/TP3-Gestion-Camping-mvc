@@ -56,7 +56,7 @@ CREATE TABLE site(
  collaborateur (id)
  );
   
-   CREATE TABLE statut(
+CREATE TABLE statut(
  id INT NOT NULL AUTO_INCREMENT,
  statutDescription VARCHAR (45) NOT NULL,
  CONSTRAINT pk_id PRIMARY KEY (id)
@@ -68,7 +68,7 @@ CREATE TABLE reservation(
  dateArrivee DATE NOT NULL,
  dateDepart DATE NOT NULL,
  nbrDePersonnes INT NOT NULL,
-  clientId INT NOT NULL,
+ clientId INT NOT NULL,
  siteId INT NOT NULL,
  statutId INT NOT NULL DEFAULT 1,
  CONSTRAINT pk_id PRIMARY KEY (id),
@@ -99,12 +99,13 @@ VALUES
 ("Emplacement de camping"),
 ("Prêt-à-camper");
 
+
 INSERT INTO collaborateur
-(nom, prenom, adresse, codePostal, telephone, courriel, motDePasse, matricule, privilege_id)
+(nom, prenom, adresse, codePostal, telephone, courriel, motDePasse, matricule, privilegeId)
 VALUES
-('Dupont', 'Jean', '123 Rue Principale', 'H2X1A4', '5141234567', 'jean.dupont@example.com', 'motdepasse123', '123', 1),
-('Leroy', 'Sophie', '45 Avenue des Fleurs', 'H3Z2B7', '4389876543', 'sophie.leroy@example.com', 'pwdSecu2025', '123', 2),
-('Martin', 'Karim', '87 Boulevard Saint-Laurent', 'H1C3D2', '5147451289', 'karim.martin@example.com', 'passA123!', '123', 3);
+('Dupont', 'Jean', '123 Rue Principale', 'H2X1A4', '5141234567', 'admin@admin.com', '$2b$10$YbTk5MC5.sqmNosPMPz/F.jMhx/iVKkv2hhGJkEtpryPO7gEo3cUK', '123', 1),
+('Leroy', 'Sophie', '45 Avenue des Fleurs', 'H3Z2B7', '4389876543', 'manager@manager.com', '$2b$10$YbTk5MC5.sqmNosPMPz/F.jMhx/iVKkv2hhGJkEtpryPO7gEo3cUK', '123', 2),
+('Martin', 'Karim', '87 Boulevard Saint-Laurent', 'H1C3D2', '5147451289', 'employe@employe.com', '$2b$10$YbTk5MC5.sqmNosPMPz/F.jMhx/iVKkv2hhGJkEtpryPO7gEo3cUK!', '123', 3);
 
 INSERT INTO site (siteNom, siteDescription, capacite, prix, urlImage, categorieId, collaborateurId) VALUES
 ('Chalet du Lac', 'Chalet rustique au bord du lac, idéal pour les familles.', 6, 180.00, 'img/chalets/chalet1.jpeg', 1, 1),
@@ -150,6 +151,6 @@ VALUES
 ('2025-07-08','2025-07-12',2,5,14,2),
 ('2025-08-10','2025-08-15',3,5,15,3);
 
-
+-- select * from site where id not in (select siteId from reservation)
 
 
