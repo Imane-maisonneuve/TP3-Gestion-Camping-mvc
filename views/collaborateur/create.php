@@ -42,7 +42,7 @@
         {% endif %}
 
         <label>Mot De Passe</label>
-        <input type="email" name="motDePasse" value="{{ collaborateur.motDePasse }}">
+        <input type="password" name="motDePasse" value="{{ collaborateur.motDePasse }}">
         {% if errors.motDePasse is defined %}
         <span class="error">{{ errors.motDePasse }}</span>
         {% endif %}
@@ -60,8 +60,8 @@
             <option value="{{ privilege.id }}" {% if privilege.id == collaborateur.privilegeId %} selected {% endif %}>{{ privilege.privilege }}</option>
             {% endfor %}
         </select>
-        {% if errors.statutId is defined %}
-        <span class="error">{{ errors.statutId }}</span>
+        {% if errors.privilegeId is defined %}
+        <span class="error">{{ errors.privilegeId }}</span>
         {% endif %}
 
         <input type="submit" class="bouton-submit" value="Enregistrer">

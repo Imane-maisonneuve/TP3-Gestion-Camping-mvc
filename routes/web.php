@@ -13,7 +13,9 @@ Route::post('/site/edit', 'SiteController@update');
 Route::get('/site/create', 'SiteController@create');
 Route::post('/site/create', 'SiteController@store');
 
-
+Route::get('/collaborateurs', 'CollaborateurController@index');
+Route::get('/collaborateur/create', 'CollaborateurController@create');
+Route::post('/collaborateur/create', 'CollaborateurController@store');
 
 Route::get('/login', 'AuthController@create');
 Route::post('/login', 'AuthController@show');

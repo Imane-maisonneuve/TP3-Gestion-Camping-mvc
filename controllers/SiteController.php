@@ -35,6 +35,7 @@ class SiteController
     public function store($data)
     {
         Auth::session();
+        Auth::privilege(1);
         $validator = new Validator;
         $validator->field('siteNom', $data['siteNom'])->required();
         $validator->field('siteDescription', $data['siteDescription'])->required();

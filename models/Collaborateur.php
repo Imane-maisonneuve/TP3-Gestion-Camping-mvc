@@ -26,7 +26,8 @@ class Collaborateur extends CRUD
             if (password_verify($motDePasse, $collaborateur['motDePasse'])) {
                 session_regenerate_id();
                 $_SESSION['collaborateur_id'] = $collaborateur['id'];
-                $_SESSION['collaborateur_name'] = $collaborateur['name'];
+                $_SESSION['collaborateur_nom'] = $collaborateur['nom'];
+                $_SESSION['collaborateur_prenom'] = $collaborateur['prenom'];
                 $_SESSION['privilege_id'] = $collaborateur['privilegeId'];
                 $_SESSION['fingerPrint'] = md5($_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR']);
                 return true;

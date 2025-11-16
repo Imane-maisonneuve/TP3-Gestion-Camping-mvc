@@ -20,7 +20,8 @@ class Auth
         if ($_SESSION['privilege_id'] == $id) {
             return TRUE;
         } else {
-            return view::redirect('login');
+            // return view::redirect('login');
+            return false;
         }
     }
 }

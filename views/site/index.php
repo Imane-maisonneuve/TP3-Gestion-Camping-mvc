@@ -1,14 +1,15 @@
 {{ include('layouts/header.php', {title:'Site index'})}}
-
+<h3>Bonjour, {{ session.collaborateur_prenom }} {{ session.collaborateur_nom }}</h3>
+{% if session.privilege_id ==1 or session.privilege_id ==2 %}
+<div class="entete-gestion-sites">
+    <a href="{{base}}/collaborateurs" class="bouton bouton-submit "> Afficher la liste des collaborateurs</a>
+</div>
+{% endif %}
 {% if session.privilege_id ==1 %}
 <div class="entete-gestion-sites">
-    <h3>Ajouter un site</h3>
-    <a href="{{base}}/site/create"><img src="{{asset}}img/add.png" alt=""></a>
+    <a href="{{base}}/site/create" class="bouton bouton-submit "> Ajouter un hébergements</a>
 </div>
-<div class="entete-gestion-sites">
-    <h3>Ajouter un collaborateur</h3>
-    <a href="{{base}}/collaborateur/create"><img src="{{asset}}img/add.png" alt=""></a>
-</div>
+<br>
 {% endif %}
 
 <section class="grille">

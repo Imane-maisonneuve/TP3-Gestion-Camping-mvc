@@ -32,7 +32,7 @@ class Validator
     public function max($length)
     {
         if (strlen($this->value) > $length) {
-            $this->errors[$this->key] = "$this->name doit être inférieur à $length characters.";
+            $this->errors[$this->key] = "$this->name doit être inférieur à $length caractères.";
         }
         return $this;
     }
@@ -40,7 +40,7 @@ class Validator
     public function min($length)
     {
         if (strlen($this->value) < $length) {
-            $this->errors[$this->key] = "$this->name doit être supérieur à $length characters.";
+            $this->errors[$this->key] = "$this->name doit être supérieur à $length caractères.";
         }
         return $this;
     }
