@@ -1,4 +1,5 @@
 {{ include('layouts/header.php', {title:'site edit'})}}
+
 <div class="container">
     <form class="form-base" method="post">
 
@@ -47,8 +48,8 @@
         <span class="error">{{ errors.categorieId }}</span>
         {% endif %}
 
-        <input type="hidden" name="collaborateurId" value="{{ site.collaborateurId }}">
-        <input type="submit" class="bouton-submit" value="Mettre à jour">
+        <input type="hidden" name="collaborateurId" value="{{ session.collaborateur_id }}">
+        <input type="submit" class="bouton-submit" value="Enregistrer">
     </form>
 </div>
 {{ include('layouts/footer.php')}}

@@ -13,6 +13,8 @@ Route::post('/site/edit', 'SiteController@update');
 Route::get('/site/create', 'SiteController@create');
 Route::post('/site/create', 'SiteController@store');
 
+
+
 Route::get('/login', 'AuthController@create');
 Route::post('/login', 'AuthController@show');
 Route::get('/logout', 'AuthController@delete');

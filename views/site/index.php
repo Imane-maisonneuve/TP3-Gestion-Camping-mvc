@@ -1,10 +1,15 @@
 {{ include('layouts/header.php', {title:'Site index'})}}
 
-
+{% if session.privilege_id ==1 %}
 <div class="entete-gestion-sites">
     <h3>Ajouter un site</h3>
-    <a href="{{base}}/site/create?id={{ $_SESSION['collaborateur_id'] }}"><img src="{{asset}}img/add.png" alt=""></a>
+    <a href="{{base}}/site/create"><img src="{{asset}}img/add.png" alt=""></a>
 </div>
+<div class="entete-gestion-sites">
+    <h3>Ajouter un collaborateur</h3>
+    <a href="{{base}}/collaborateur/create"><img src="{{asset}}img/add.png" alt=""></a>
+</div>
+{% endif %}
 
 <section class="grille">
     {% for site in sites %}

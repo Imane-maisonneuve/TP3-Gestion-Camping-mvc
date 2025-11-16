@@ -49,6 +49,7 @@ CREATE TABLE site(
  urlImage text,
  categorieId int NOT NULL,
  collaborateurId int NOT NULL,
+ dateCreation DATE NOT NULL DEFAULT (CURRENT_DATE), 
  CONSTRAINT pk_id PRIMARY KEY (id),
  CONSTRAINT fk_categorieId FOREIGN KEY (categorieId) REFERENCES 
  categorie (id),
@@ -152,5 +153,7 @@ VALUES
 ('2025-08-10','2025-08-15',3,5,15,3);
 
 -- select * from site where id not in (select siteId from reservation)
+select * from reservation order by siteId
+select * from site
 
 
