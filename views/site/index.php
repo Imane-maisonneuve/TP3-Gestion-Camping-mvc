@@ -4,6 +4,7 @@
 <div class="entete-gestion-sites">
     <a href="{{base}}/collaborateurs" class="bouton bouton-submit "> Afficher la liste des collaborateurs</a>
 </div>
+<br>
 {% endif %}
 {% if session.privilege_id ==1 %}
 <div class="entete-gestion-sites">
