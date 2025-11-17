@@ -28,7 +28,6 @@ class Client extends CRUD
                 $_SESSION['client_id'] = $client['id'];
                 $_SESSION['client_nom'] = $client['nom'];
                 $_SESSION['client_prenom'] = $client['prenom'];
-                // $_SESSION['privilege_id'] = $client['privilegeId'];
                 $_SESSION['fingerPrint'] = md5($_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR']);
                 return true;
             } else {

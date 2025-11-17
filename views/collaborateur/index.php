@@ -1,4 +1,4 @@
-{{ include('layouts/header.php', {title:'Site index'})}}
+{{ include('layouts/header.php', {title:'Liste des collaborateur'})}}
 <h3>Liste des collaborateurs:</h3>
 <table>
 

@@ -4,6 +4,7 @@ use App\Routes\Route;
 use App\Controllers\SiteController;
 use App\Controllers\ReservationController;
 use App\Controllers\AuthController;
+use App\Controllers\JournalController;
 
 Route::get('/', 'SiteController@index');
 Route::get('/sites', 'SiteController@index');
@@ -25,9 +26,8 @@ Route::get('/reservations', 'ReservationController@index');
 Route::get('/reservation/create', 'ReservationController@create');
 Route::post('/reservation/create', 'ReservationController@store');
 Route::get('/reservation/show', 'ReservationController@show');
-// Route::get('/reservation/edit', 'ReservationController@edit');
-// Route::post('/reservation/edit', 'ReservationController@update');
-// Route::post('/reservation/delete', 'ReservationController@delete');
+
+Route::get('/journal', 'JournalController@create');
 
 
 

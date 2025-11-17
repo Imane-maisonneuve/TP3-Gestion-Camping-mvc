@@ -15,9 +15,8 @@
             <div id=menu>
                 <a href="{{base}}/"><img src="{{asset}}img/home.png" alt=""></a>
                 {% if session.privilege_id == 1 %}
-                <a href="{{base}}/"><img src="{{asset}}img/journal.png" alt=""></a>
+                <a href="{{base}}/journal"><img src="{{asset}}img/journal.png" alt=""></a>
                 {% endif %}
-                <!-- <a href="{{base}}/reservations"><img src="{{asset}}img/user.png" alt=""></a> -->
                 {%if guest %}
                 <a href="{{base}}/login"><img src="{{asset}}img/user.png" alt=""></a>
                 {% else %}
