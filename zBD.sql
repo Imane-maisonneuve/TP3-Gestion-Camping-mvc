@@ -88,7 +88,6 @@ INSERT INTO privilege (privilege) VALUES('Employee');
 
 CREATE TABLE journal (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    userId INT NULL,
     nom VARCHAR(100) NULL,
     prenom VARCHAR(100) NULL,
     privilege VARCHAR(50) NULL,
@@ -171,6 +170,6 @@ select * from collaborateur;
 select * from site order by dateCreation desc;
 SELECT * FROM site ORDER BY dateCreation asc;
 select * from client;
-select * from reservation;
+select * from journal;
 
 

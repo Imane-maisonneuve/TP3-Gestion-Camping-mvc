@@ -97,7 +97,7 @@ class CollaborateurController
         $pdf->SetFont('Arial', 'B', 12);
         $pdf->Cell(30, 10, 'Nom', 1);
         $pdf->Cell(30, 10, 'Prenom', 1);
-        $pdf->Cell(50, 10, 'Email', 1);
+        $pdf->Cell(60, 10, 'Email', 1);
         $pdf->Cell(30, 10, 'Telephone', 1);
         $pdf->Cell(40, 10, 'Matricule', 1);
         $pdf->Cell(60, 10, 'Date de creation', 1);
@@ -108,7 +108,7 @@ class CollaborateurController
         foreach ($collaborateurs as $c) {
             $pdf->Cell(30, 10, $c['nom'], 1);
             $pdf->Cell(30, 10, $c['prenom'], 1);
-            $pdf->Cell(50, 10, $c['courriel'], 1);
+            $pdf->Cell(60, 10, $c['courriel'], 1);
             $pdf->Cell(30, 10, $c['telephone'], 1);
             $pdf->Cell(40, 10, $c['matricule'], 1);
             $pdf->Cell(60, 10, $c['created_at'], 1);

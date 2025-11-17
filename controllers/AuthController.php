@@ -11,7 +11,6 @@ use App\Models\Journal;
 
 class AuthController
 {
-
     public function create()
     {
         return View::render('auth/create');
@@ -44,16 +43,9 @@ class AuthController
             return view::render('auth/create', ['errors' => $errors, 'collaborateur' => $data]);
         }
     }
+
     public function delete()
     {
-        $journal = new Journal;
-        // var_dump($_SESSION['journal']);
-        // die();
-
-        foreach ($_SESSION['journal'] as $data) {
-            $journal->insert($data);
-        }
-
         session_destroy();
         return View::redirect('login');
     }

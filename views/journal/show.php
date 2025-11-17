@@ -19,7 +19,7 @@
 
 
         {% if journal.privilege == '' %}
-        <td>Client-pas de privilege</td>
+        <td>Pas de privilege</td>
         {% else %}
         {% for privilege in privileges %}
         {% if privilege.id == journal.privilege %}
