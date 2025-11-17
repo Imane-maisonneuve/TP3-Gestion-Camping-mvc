@@ -25,12 +25,7 @@
         <span class="error">{{ errors.nbrDePersonnes }}</span>
         {% endif %}
 
-        <label>Votre Courriel</label>
-        <input type="email" name="courriel" value="{{ reservation.courriel }}">
-        {% if errors.courriel is defined %}
-        <span class="error">{{ errors.courriel }}</span>
-        {% endif %}
-
+        <input type="hidden" name="clientId" value="{{ session.client_id }}">
         <input type="hidden" name="siteId" value="{{ site.id }}">
 
         <input type="submit" class="bouton-submit" value="Enregistrer la reservation">

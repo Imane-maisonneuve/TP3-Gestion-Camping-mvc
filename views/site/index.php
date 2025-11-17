@@ -1,5 +1,7 @@
 {{ include('layouts/header.php', {title:'Site index'})}}
+{% if session.privilege_id%}
 <h3>Bonjour, {{ session.collaborateur_prenom }} {{ session.collaborateur_nom }}</h3>
+{% endif %}
 {% if session.privilege_id ==1 or session.privilege_id ==2 %}
 <div class="entete-gestion-sites">
     <a href="{{base}}/collaborateurs" class="bouton bouton-submit "> Afficher la liste des collaborateurs</a>

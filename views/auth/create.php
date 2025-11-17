@@ -14,7 +14,9 @@
     {% if errors.motDePasse is defined %}
     <span class="error">{{ errors.motDePasse }}</span>
     {% endif %}
-
+    {% if errors.message %}
+    <span class="erreur">{{ errors.message }}</span>
+    {% endif %}
     <input type="submit" value="Se connecter" class="bouton-submit" />
 </form>
 

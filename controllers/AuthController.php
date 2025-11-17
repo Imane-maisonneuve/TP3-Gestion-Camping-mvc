@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Providers\View;
 use App\Providers\Validator;
 use App\Models\Collaborateur;
+use App\Models\Client;
 
 
 class AuthController
@@ -28,8 +29,14 @@ class AuthController
             if ($checkcollaborateur) {
                 return View::redirect('sites');
             } else {
-                $errors['message'] = "Veuillez vérifier vos identifiants";
-                return view::render('auth/create', ['errors' => $errors, 'collaborateur' => $data]);
+                $client = new Client;
+                $checkclient = $client->checkclient($data['courriel'], $data['motDePasse']);
+                if ($checkclient) {
+                    return View::redirect('sites');
+                } else {
+                    $errors['message'] = "Veuillez vérifier vos identifiants";
+                    return view::render('auth/create', ['errors' => $errors, 'collaborateur' => $data]);
+                }
             }
         } else {
             $errors = $validator->getErrors();

@@ -31,7 +31,8 @@ create database camping_mvc_auth;
  telephone VARCHAR(20),
  courriel VARCHAR(45) NOT NULL,
  motDePasse VARCHAR(255) NOT NULL,
- CONSTRAINT pk_id PRIMARY KEY (id)
+ CONSTRAINT pk_id PRIMARY KEY (id),
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
  
  CREATE TABLE categorie(
@@ -106,7 +107,7 @@ INSERT INTO collaborateur
 VALUES
 ('Dupont', 'Jean', '123 Rue Principale', 'H2X1A4', '5141234567', 'admin@admin.com', '$2b$10$YbTk5MC5.sqmNosPMPz/F.jMhx/iVKkv2hhGJkEtpryPO7gEo3cUK', '123', 1),
 ('Leroy', 'Sophie', '45 Avenue des Fleurs', 'H3Z2B7', '4389876543', 'manager@manager.com', '$2b$10$YbTk5MC5.sqmNosPMPz/F.jMhx/iVKkv2hhGJkEtpryPO7gEo3cUK', '123', 2),
-('Martin', 'Karim', '87 Boulevard Saint-Laurent', 'H1C3D2', '5147451289', 'employe@employe.com', '$2b$10$YbTk5MC5.sqmNosPMPz/F.jMhx/iVKkv2hhGJkEtpryPO7gEo3cUK!', '123', 3);
+('Martin', 'Karim', '87 Boulevard Saint-Laurent', 'H1C3D2', '5147451289', 'employe@employe.com', '$2b$10$YbTk5MC5.sqmNosPMPz/F.jMhx/iVKkv2hhGJkEtpryPO7gEo3cUK', '123', 3);
 
 INSERT INTO site (siteNom, siteDescription, capacite, prix, urlImage, categorieId, collaborateurId) VALUES
 ('Chalet du Lac', 'Chalet rustique au bord du lac, idéal pour les familles.', 6, 180.00, 'img/chalets/chalet1.jpeg', 1, 1),
@@ -128,11 +129,11 @@ INSERT INTO site (siteNom, siteDescription, capacite, prix, urlImage, categorieI
 
 INSERT INTO client (nom, prenom, adresse, codePostal, telephone, courriel, motDePasse)
 VALUES
-('Charpentier', 'Julien', '12 rue du Lac Bleu Montreal', 'G1A 2B3', '5141234567', 'julien@gmail.com', '123'),
-('Robert', 'Yanis', '45 avenue des Pins Laval', 'H3A 1K2', '4382345678', 'yanis@gmail.com', '123'),
-('Antoine', 'Marc', '78 chemin du Bois Laval', 'J2K 3L4', '4183456789', 'marc@gmail.com', '123'),
-('Gagnon', 'Dominique', '23 boulevard des Laurentides Montreal', 'H4N 2P5', '5144567890', 'dominique@gmail.com', '123'),
-('Dubois', 'Amélie', '9 rue de la Montagne Montreal', 'J1C 5M6', '4505678901', 'amelie@gmail.com', '123');
+('Charpentier', 'Julien', '12 rue du Lac Bleu Montreal', 'G1A 2B3', '5141234567', 'julien@gmail.com', '$2b$10$YbTk5MC5.sqmNosPMPz/F.jMhx/iVKkv2hhGJkEtpryPO7gEo3cUK'),
+('Robert', 'Yanis', '45 avenue des Pins Laval', 'H3A 1K2', '4382345678', 'yanis@gmail.com', '$2b$10$YbTk5MC5.sqmNosPMPz/F.jMhx/iVKkv2hhGJkEtpryPO7gEo3cUK'),
+('Antoine', 'Marc', '78 chemin du Bois Laval', 'J2K 3L4', '4183456789', 'marc@gmail.com', '$2b$10$YbTk5MC5.sqmNosPMPz/F.jMhx/iVKkv2hhGJkEtpryPO7gEo3cUK'),
+('Gagnon', 'Dominique', '23 boulevard des Laurentides Montreal', 'H4N 2P5', '5144567890', 'dominique@gmail.com', '$2b$10$YbTk5MC5.sqmNosPMPz/F.jMhx/iVKkv2hhGJkEtpryPO7gEo3cUK'),
+('Dubois', 'Amélie', '9 rue de la Montagne Montreal', 'J1C 5M6', '4505678901', 'amelie@gmail.com', '$2b$10$YbTk5MC5.sqmNosPMPz/F.jMhx/iVKkv2hhGJkEtpryPO7gEo3cUK');
 
 INSERT INTO reservation (dateArrivee, dateDepart, nbrDePersonnes, clientId, siteId, statutId)
 VALUES
@@ -153,7 +154,9 @@ VALUES
 ('2025-08-10','2025-08-15',3,5,15,3);
 
 -- select * from site where id not in (select siteId from reservation)
-select * from reservation order by siteId
-select * from site
+select * from collaborateur;
+select * from site order by dateCreation desc;
+SELECT * FROM site ORDER BY dateCreation asc;
+select * from client;
 
 

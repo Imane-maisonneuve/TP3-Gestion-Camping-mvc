@@ -21,14 +21,6 @@
             <p><strong>Statut</strong> : {{ statut.statutDescription }}</p>
             {% endif %}
             {% endfor %}
-            <div class="actions">
-                <a href="{{base}}/reservation/edit?id={{ reservation.id }}" class="bouton bouton-submit">Modifier</a>
-                <form action="{{base}}/reservation/delete" method="post">
-                    <input type="hidden" name="id" value="{{ reservation.id }}">
-                    <input type="hidden" name="courriel" value="{{ reservation.courriel }}">
-                    <input type="submit" class="bouton bouton-submit" value="Supprimer">
-                </form>
-            </div>
         </div>
     </div>
     {% endfor %}

@@ -263,11 +263,11 @@ select {
   text-align: center;
 }
 
-[id="lien-inscription"] {
+[id="lien"] {
   text-decoration: underline;
 }
 
-[id="lien-inscription"]:hover {
+[id="lien"]:hover {
   text-decoration: underline;
   color: orange;
 }
