@@ -86,6 +86,19 @@ INSERT INTO privilege (privilege) VALUES ('Admin');
 INSERT INTO privilege (privilege) VALUES ('Manager');
 INSERT INTO privilege (privilege) VALUES('Employee');
 
+CREATE TABLE journal (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    userId INT NULL,
+    nom VARCHAR(100) NULL,
+    prenom VARCHAR(100) NULL,
+    privilege VARCHAR(50) NULL,
+    ip VARCHAR(50) NOT NULL,
+    dateEtHeure DATETIME NOT NULL,
+    pageVisite VARCHAR(255) NOT NULL,
+    method VARCHAR(10) NOT NULL
+);
+
+
 INSERT INTO statut (statutDescription)
 VALUES 
 ("Confirmée"),
@@ -158,5 +171,6 @@ select * from collaborateur;
 select * from site order by dateCreation desc;
 SELECT * FROM site ORDER BY dateCreation asc;
 select * from client;
+select * from reservation;
 
 

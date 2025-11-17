@@ -6,6 +6,7 @@ use App\Providers\View;
 use App\Providers\Validator;
 use App\Models\Collaborateur;
 use App\Models\Client;
+use App\Models\Journal;
 
 
 class AuthController
@@ -45,6 +46,14 @@ class AuthController
     }
     public function delete()
     {
+        $journal = new Journal;
+        // var_dump($_SESSION['journal']);
+        // die();
+
+        foreach ($_SESSION['journal'] as $data) {
+            $journal->insert($data);
+        }
+
         session_destroy();
         return View::redirect('login');
     }

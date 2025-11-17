@@ -27,7 +27,7 @@ Route::get('/reservation/create', 'ReservationController@create');
 Route::post('/reservation/create', 'ReservationController@store');
 Route::get('/reservation/show', 'ReservationController@show');
 
-Route::get('/journal', 'JournalController@create');
+Route::get('/journal', 'JournalController@show');
 
 
 

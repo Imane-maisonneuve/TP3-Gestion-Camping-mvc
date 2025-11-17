@@ -25,7 +25,7 @@
         <span class="error">{{ errors.nbrDePersonnes }}</span>
         {% endif %}
 
-        <input type="hidden" name="clientId" value="{{ session.client_id }}">
+        <input type="hidden" name="clientId" value="{{ session.user_id }}">
         <input type="hidden" name="siteId" value="{{ site.id }}">
 
         <input type="submit" class="bouton-submit" value="Enregistrer la reservation">

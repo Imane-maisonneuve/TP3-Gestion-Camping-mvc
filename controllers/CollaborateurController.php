@@ -8,7 +8,6 @@ use App\Models\Collaborateur;
 use App\Models\Privilege;
 use App\Providers\Validator;
 use App\Providers\Auth;
-// use FPDF\FPDF;
 use \Fpdf\Fpdf;
 
 class CollaborateurController

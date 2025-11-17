@@ -3,8 +3,6 @@
 <div class="container">
     <form class="form-base" method="post">
 
-        <h2>{{ site.siteNom }}</h2>
-        <picture><img src="{{asset}}{{ site.urlImage }}" alt=""></picture>
         <input type="hidden" name="id" value="{{ site.id }}">
 
         <label>Nom du Site</label>
@@ -48,7 +46,8 @@
         <span class="error">{{ errors.categorieId }}</span>
         {% endif %}
 
-        <input type="hidden" name="collaborateurId" value="{{ session.collaborateur_id }}">
+        <!-- <input type="hidden" name="collaborateurId" value="{{ session.collaborateur_id }}"> -->
+        <input type="hidden" name="collaborateurId" value="{{ session.user_id }}">
         <input type="submit" class="bouton-submit" value="Enregistrer">
     </form>
 </div>
