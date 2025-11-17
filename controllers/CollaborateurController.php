@@ -8,6 +8,8 @@ use App\Models\Collaborateur;
 use App\Models\Privilege;
 use App\Providers\Validator;
 use App\Providers\Auth;
+// use FPDF\FPDF;
+use \Fpdf\Fpdf;
 
 class CollaborateurController
 {
@@ -51,7 +53,7 @@ class CollaborateurController
             $validator->field('nom', $data['nom'])->required()->min(2)->max(50);
             $validator->field('prenom', $data['prenom'])->required()->min(2)->max(50);
             $validator->field('adresse', $data['adresse'])->required()->min(10)->max(50);
-            $validator->field('codePostal', $data['codePostal'])->required()->min(7)->max(10);
+            $validator->field('codePostal', $data['codePostal'])->required()->max(7);
             $validator->field('telephone', $data['telephone'])->min(7)->max(20);
             $validator->field('courriel', $data['courriel'])->required()->max(50)->email()->unique('Collaborateur');
             $validator->field('motDePasse', $data['motDePasse'])->required()->min(6)->max(20);
@@ -63,6 +65,9 @@ class CollaborateurController
                 $data['motDePasse'] = $collaborateur->hashPassword($data['motDePasse']);
                 $insert = $collaborateur->insert($data);
                 if ($insert) {
+                    // Pdf
+                    $this->generatePdf();
+                    // pdf
                     return view::redirect('collaborateurs');
                 } else {
                     return view::render('error');
@@ -76,5 +81,41 @@ class CollaborateurController
         } else {
             return View::redirect("sites");
         }
+    }
+    private function generatePdf()
+    {
+        // Récupérer tous les collaborateurs
+        $collaborateur = new Collaborateur;
+        $collaborateurs = $collaborateur->select();
+
+        $pdf = new FPDF('L', 'mm', 'A4');
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 14);
+        $pdf->Cell(0, 10, 'Liste des collaborateurs', 0, 1, 'C');
+        $pdf->Ln(5);
+
+        // Entêtes
+        $pdf->SetFont('Arial', 'B', 12);
+        $pdf->Cell(30, 10, 'Nom', 1);
+        $pdf->Cell(30, 10, 'Prenom', 1);
+        $pdf->Cell(50, 10, 'Email', 1);
+        $pdf->Cell(30, 10, 'Telephone', 1);
+        $pdf->Cell(40, 10, 'Matricule', 1);
+        $pdf->Cell(60, 10, 'Date de creation', 1);
+        $pdf->Ln();
+
+        // Données
+        $pdf->SetFont('Arial', '', 12);
+        foreach ($collaborateurs as $c) {
+            $pdf->Cell(30, 10, $c['nom'], 1);
+            $pdf->Cell(30, 10, $c['prenom'], 1);
+            $pdf->Cell(50, 10, $c['courriel'], 1);
+            $pdf->Cell(30, 10, $c['telephone'], 1);
+            $pdf->Cell(40, 10, $c['matricule'], 1);
+            $pdf->Cell(60, 10, $c['created_at'], 1);
+            $pdf->Ln();
+        }
+        // Enregistrer à la racine
+        $pdf->Output('F', __DIR__ . '/../zpdf/collaborateurs.pdf');
     }
 }

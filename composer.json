@@ -8,6 +8,8 @@
     }
   },
   "require": {
-    "twig/twig": "^3.21"
+    "twig/twig": "^3.21",
+    "fpdf/fpdf": "^1.86",
+    "setasign/fpdf": "^1.8"
   }
 }
